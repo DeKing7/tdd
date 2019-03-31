@@ -1,6 +1,7 @@
 package Calculator;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,10 +55,12 @@ public class CalculatorTest {
         assertEquals(9, calc.perform_3(3,3));
         verify(service, atLeastOnce()).multiply(3,3);
     }
-    @Test
+    @RepeatedTest(value = 56, name = "X {currentRepetition} z {totalRepetition) testów")
     public void testDivide(){
-        when(service.divide(3,3)).thenReturn(1.0);
-        assertEquals(3, calc.perform_4(3,3));
+        System.out.println(System.currentTimeMillis());
+        when(service.divide(5,2)).thenReturn(2.5);
+        assertEquals(6.5, calc.perform_4(5,2));
+        verify(service, atLeastOnce()).divide(5,2);
 
     }
 
