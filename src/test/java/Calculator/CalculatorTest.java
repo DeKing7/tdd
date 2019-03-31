@@ -44,7 +44,8 @@ public class CalculatorTest {
     @Test
     public void testSubstraction(){
         when(service.substract(3,3)).thenReturn(0);
-        assertEquals(1, cal );
+        assertEquals(1, calc.perform_2(3,3) );
+
     }
 
 }
