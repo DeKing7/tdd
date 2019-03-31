@@ -43,8 +43,21 @@ public class CalculatorTest {
     }
     @Test
     public void testSubstraction(){
-        when(service.substract(3,3)).thenReturn(0);
-        assertEquals(1, calc.perform_2(3,3) );
+        when(service.substract(6,3)).thenReturn(3);
+        assertEquals(6, calc.perform_2(3,3));
+        verify(service, atLeastOnce()).substract(6,3);
+
+    }
+    @Test
+    public void testMultipication(){
+        when(service.multiply(3,3)).thenReturn(9);
+        assertEquals(9, calc.perform_3(3,3));
+        verify(service, atLeastOnce()).multiply(3,3);
+    }
+    @Test
+    public void testDivide(){
+        when(service.divide(3,3)).thenReturn(1.0);
+        assertEquals(3, calc.perform_4(3,3));
 
     }
 
